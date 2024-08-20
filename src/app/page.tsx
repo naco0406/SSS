@@ -41,9 +41,13 @@ export default function Home() {
               스스스, Swing Smash Squash는<br />
               <span className="font-semibold">매주 화요일 오후 8시</span> 스쿼시를 합니다 🍀
             </p>
-            <p className="">
+            <p className="text-xs mb-4">
               참여하고 싶은 날짜에 이름을 적어요!<br />
               대신 20자 까지만~ 🥰
+            </p>
+            <p className="text-xs">
+              귀찮아서 로그인 구현 안했으니<br />
+              자기꺼만 수정하기~ ✅
             </p>
           </HoverCardContent>
         </HoverCard>
@@ -54,7 +58,7 @@ export default function Home() {
       <div className="w-full overflow-x-auto">
         <div className="inline-flex space-x-4" style={{ minWidth: "100%" }}>
           {dates.map((date, index) => (
-            <Card key={index} className="w-full max-w-sm flex-shrink-0 h-[calc(100vh-108px)] bg-white/40">
+            <Card key={index} className="w-full max-w-xs flex-shrink-0 h-[calc(100vh-108px)] bg-white/40">
               <CardContent className="p-4 h-full">
                 <SurveyColumn date={date} />
               </CardContent>
