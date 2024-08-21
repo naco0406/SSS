@@ -21,7 +21,10 @@ export function SurveyColumn({ date }: SurveyColumnProps) {
 
     return (
         <div className="flex flex-col h-full">
-            <h2 className="text-xl font-semibold mb-4">{date.toLocaleDateString()}</h2>
+            <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold">{date.toLocaleDateString()}</h2>
+                <span className="text-sm text-gray-500">{participants.length}명</span>
+            </div>
             <Separator className="mb-4" />
             <div className="flex-grow overflow-y-auto mb-4">
                 {participants.map((participant, index) => (
