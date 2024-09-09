@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
+
 import "../styles/globals.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -36,6 +38,7 @@ export default function RootLayout({
           draggable
           pauseOnHover
         />
+        <Analytics />
       </body>
     </html>
   );
