@@ -1,4 +1,4 @@
-import { addParticipant, removeParticipant, getParticipants, db } from "./firestore";
+import { addParticipant, removeParticipant, getParticipants, db, getParticipantLimit } from "./firestore";
 import { addDoc, collection, query, where, orderBy, getDocs, Timestamp } from "firebase/firestore";
 
 const toKSTDate = (date: Date): Date => {
@@ -31,6 +31,15 @@ export const FirestoreService = {
     getParticipants: async (date: string): Promise<string[]> => {
         try {
             return await getParticipants(date);
+        } catch (error) {
+            console.error('Error fetching participants:', error);
+            throw error;
+        }
+    },
+
+    getParticipantLimit: async (date: string): Promise<number> => {
+        try {
+            return await getParticipantLimit(date);
         } catch (error) {
             console.error('Error fetching participants:', error);
             throw error;

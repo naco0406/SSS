@@ -4,6 +4,7 @@ import { FirestoreService } from '@/lib/FirestoreService';
 
 export const useSurvey = (date: Date) => {
     const [participants, setParticipants] = useState<string[]>([]);
+    const [participantLimit, setParticipantLimit] = useState<number>(7);
     const [newParticipant, setNewParticipant] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
@@ -14,6 +15,8 @@ export const useSurvey = (date: Date) => {
         try {
             const fetchedParticipants = await FirestoreService.getParticipants(dateString);
             setParticipants(fetchedParticipants);
+            const fetchedParticipantLimit = await FirestoreService.getParticipantLimit(dateString);
+            setParticipantLimit(fetchedParticipantLimit);
         } catch (error) {
             console.error('Error fetching participants:', error);
             toast.error('참가자 목록을 불러오는 데 실패했습니다.', {
@@ -67,6 +70,7 @@ export const useSurvey = (date: Date) => {
 
     return {
         participants,
+        participantLimit,
         newParticipant,
         setNewParticipant,
         isLoading,

@@ -65,3 +65,18 @@ export const getParticipants = async (date: string): Promise<string[]> => {
         throw error;
     }
 };
+
+export const getParticipantLimit = async (date: string): Promise<number> => {
+    try {
+        const participantRef = doc(db, 'squashSurvey', date);
+        const participantDoc = await getDoc(participantRef);
+        if (participantDoc.exists()) {
+            return participantDoc.data().limit || 7;
+        } else {
+            return 7;
+        }
+    } catch (error) {
+        console.error('Error fetching participant limit: ', error);
+        throw error;
+    }
+};
