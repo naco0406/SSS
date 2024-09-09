@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge"
 import { UserPlus, X, Loader2 } from "lucide-react";
 import { useSurvey } from "@/hooks/useSurvey";
 
@@ -30,7 +31,8 @@ export function SurveyColumn({ date }: SurveyColumnProps) {
                 {participants.map((participant, index) => (
                     <Card key={index} className="mb-2">
                         <CardContent className="flex justify-between items-center p-2">
-                            <span>{participant}</span>
+                            <Badge className="mr-2 flex-shrink-0">{index + 1}</Badge>
+                            <span className="flex-grow text-left truncate">{participant}</span>
                             <Button
                                 variant="ghost"
                                 size="icon"
