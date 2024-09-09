@@ -55,13 +55,4 @@ export const FirestoreService = {
             return date;
         });
     },
-
-    addNewDate: async (newDate: Date): Promise<void> => {
-        const dateString = newDate.toISOString().split('T')[0];
-        const utcDate = fromKSTDate(newDate);
-        await addDoc(collection(db, "squashSurvey"), {
-            date: Timestamp.fromDate(utcDate),
-            participants: []
-        });
-    }
 };
