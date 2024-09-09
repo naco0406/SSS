@@ -58,10 +58,10 @@ export default function Home() {
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mt-2 mb-6 whitespace-nowrap h-[40px]">
         스스스 🎾
       </h1>
-      <div className="w-full overflow-x-auto">
+      <div className="w-full overflow-x-auto snap-x snap-mandatory">
         <div className="inline-flex space-x-4" style={{ minWidth: "100%" }}>
           {dates.map((date, index) => (
-            <Card key={index} className="w-full max-w-xs flex-shrink-0 h-[calc(100vh-108px)] bg-white/40">
+            <Card key={index} className="w-full max-w-xs flex-shrink-0 h-[calc(100vh-108px)] bg-white/40 snap-center">
               <CardContent className="p-4 h-full">
                 <SurveyColumn date={date} />
               </CardContent>
